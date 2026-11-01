@@ -1,4 +1,129 @@
-/* Original articles. T02 adds content. Shape: { slug, title, description, date, readMinutes, blocks: [{ type: "p"|"h2"|"ul", text|items }] } */
-export const articles = [];
+/* Original articles by The TechByte. Practical advice only: no invented statistics or client stories.
+   Block types: { type: "p", text } · { type: "h2", text } · { type: "ul", items: [] } */
+export const articles = [
+  {
+    slug: "custom-software-or-off-the-shelf",
+    title: "Custom software or an off-the-shelf tool? A practical way to decide",
+    description:
+      "A plain-language guide to choosing between ready-made software and a custom build, with the questions that actually decide it.",
+    date: "2026-10-28",
+    readMinutes: 6,
+    topic: "Custom Software",
+    service: "custom-software-development",
+    blocks: [
+      { type: "p", text: "Almost every growing business reaches the same point: the tools that worked at the start no longer fit. Spreadsheets multiply, steps are done twice, and one person becomes the only one who understands how things really work. The question is whether to buy a ready-made product or build something of your own." },
+      { type: "p", text: "There is no universal answer, but there is a sensible way to decide." },
+      { type: "h2", text: "Start with the workflow, not the software" },
+      { type: "p", text: "Before comparing products, write down how the work actually happens today: who does what, in what order, with which information, and where it goes wrong. This simple map is the most useful thing you can bring to any software decision, whether you buy or build." },
+      { type: "h2", text: "When an off-the-shelf tool is the right choice" },
+      { type: "ul", items: [
+        "Your process is close to how most businesses in your field work.",
+        "A product exists that covers most of what you need without heavy workarounds.",
+        "You need something running quickly and can adapt your process slightly.",
+        "The tool is not where your business competes or differentiates itself.",
+      ] },
+      { type: "p", text: "Accounting, email and general project management are usually good examples. Reinventing them rarely pays off." },
+      { type: "h2", text: "When custom software makes more sense" },
+      { type: "ul", items: [
+        "Your core workflow is specific to you, and generic tools force awkward workarounds.",
+        "You are paying for several products and copying data between them by hand.",
+        "You need different people to see different information with clear permissions.",
+        "Reporting needs data that is currently scattered across files and tools.",
+        "The process is part of what makes your business better than competitors.",
+      ] },
+      { type: "h2", text: "Questions to ask before you decide" },
+      { type: "ul", items: [
+        "What does a typical week of this work look like, step by step?",
+        "Which steps are repeated, error-prone or slow?",
+        "What would a good report or dashboard show us that we can't see today?",
+        "Who needs access, and what should each person be able to do?",
+        "What will this cost us over three years, including subscriptions, workarounds and staff time?",
+      ] },
+      { type: "h2", text: "A middle path" },
+      { type: "p", text: "It is not always all-or-nothing. Many businesses keep standard tools for standard jobs and build a focused custom system for the one workflow that matters most, connected to the rest where needed. Starting small and growing the system as you learn is usually safer than trying to replace everything at once." },
+      { type: "p", text: "If you are unsure which side of the line you are on, a short conversation about your workflow is often enough to tell. We are happy to give you an honest read, including when a ready-made tool is the better answer." },
+    ],
+  },
+  {
+    slug: "what-to-prepare-before-a-website-quote",
+    title: "What to prepare before you ask for a website quote",
+    description:
+      "The information that helps a developer give you an accurate website quote, and the questions worth asking in return.",
+    date: "2026-10-21",
+    readMinutes: 5,
+    topic: "Websites",
+    service: "business-website-development",
+    blocks: [
+      { type: "p", text: "Website quotes vary widely, and the main reason is that each developer is guessing at a different version of your project. A little preparation turns guesses into a quote you can compare and trust." },
+      { type: "h2", text: "1. The purpose of the site" },
+      { type: "p", text: "What should a visitor do after reading it? Call you, fill in a form, book an appointment or buy a product? One clear primary goal shapes the whole structure." },
+      { type: "h2", text: "2. Who it is for" },
+      { type: "p", text: "Describe your typical customer and the questions they ask before they buy. A website that answers those questions in plain language does more than one that only lists services." },
+      { type: "h2", text: "3. A rough list of pages" },
+      { type: "ul", items: [
+        "Home, About and Contact",
+        "One page per service or product group",
+        "Any portfolio, case studies, blog or resources",
+        "Legal pages such as privacy policy and terms",
+      ] },
+      { type: "p", text: "The number of unique page layouts affects effort more than the total number of pages." },
+      { type: "h2", text: "4. Content status" },
+      { type: "p", text: "Do you already have text, photos and a logo, or do they need to be created? Content that isn't ready is the most common reason website projects slip." },
+      { type: "h2", text: "5. Functionality beyond pages" },
+      { type: "ul", items: [
+        "Forms, bookings or appointment requests",
+        "Online payments or a product catalog",
+        "Areas your team should be able to edit themselves",
+        "Integrations with tools you already use",
+      ] },
+      { type: "h2", text: "6. Examples you like, and why" },
+      { type: "p", text: "Two or three websites you admire, with a sentence on what you like about each, communicate taste faster than any description." },
+      { type: "h2", text: "Questions worth asking the developer" },
+      { type: "ul", items: [
+        "What exactly is included, and what would count as extra?",
+        "Will the site be fast and work well on phones?",
+        "How will search engines understand the site?",
+        "Can our team update content, and how?",
+        "What happens after launch if something needs fixing?",
+      ] },
+      { type: "p", text: "You don't need all of this perfectly prepared to start a conversation. Even rough answers make the first discussion much more useful, and our quote form walks through the same points." },
+    ],
+  },
+  {
+    slug: "signs-your-website-needs-modernization",
+    title: "Signs your website needs modernization, and what to fix first",
+    description:
+      "How to tell whether your website needs targeted fixes or a rebuild, and which improvements usually matter most to visitors.",
+    date: "2026-10-14",
+    readMinutes: 5,
+    topic: "Modernization",
+    service: "website-modernization",
+    blocks: [
+      { type: "p", text: "Websites rarely fail suddenly. They age quietly: a slower page here, a broken layout on a new phone there, a section nobody dares to edit. Eventually the site works against the business instead of for it." },
+      { type: "h2", text: "Signs it is time" },
+      { type: "ul", items: [
+        "Pages feel slow, especially on mobile data.",
+        "Text is tiny, buttons are hard to tap or layouts overflow on phones.",
+        "The content describes the business as it was, not as it is.",
+        "Simple edits require a developer and take longer than they should.",
+        "Forms fail silently, or nobody is sure where enquiries go.",
+        "The site uses outdated software that is no longer updated.",
+      ] },
+      { type: "h2", text: "Fix or rebuild?" },
+      { type: "p", text: "Not every ageing site needs to be replaced. If the structure is sound and the problems are mainly speed, layout or content, targeted fixes can deliver most of the benefit quickly. If every change is slow and risky because of the underlying code, a rebuild that keeps your content and URLs is often cheaper over time." },
+      { type: "h2", text: "What to fix first" },
+      { type: "ul", items: [
+        "Mobile layout: most visitors arrive on a phone.",
+        "Loading speed: compress images, remove unused scripts and avoid heavy page builders where possible.",
+        "Clarity: make it obvious within seconds what you do and how to contact you.",
+        "Forms: test that every enquiry actually arrives.",
+        "Search basics: unique page titles, descriptions, headings and a sitemap.",
+      ] },
+      { type: "h2", text: "Protect what you have built" },
+      { type: "p", text: "If your site has been live for a while, it has search visibility worth keeping. Any modernization should preserve existing URLs or redirect them properly, and carry over titles, headings and content. Changing everything at once without a redirect plan is the most common way to lose rankings." },
+      { type: "p", text: "A short review of speed, structure and code is usually enough to decide the right route. If you'd like one, tell us about your site and we will give you an honest recommendation." },
+    ],
+  },
+];
 
 export const getArticle = (slug) => articles.find((a) => a.slug === slug);
