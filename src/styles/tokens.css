@@ -1,0 +1,48 @@
+/* Design tokens — source of truth (see DESIGN_SYSTEM.md). Owned by Claude; request changes in TASKS.md. */
+@theme {
+  --color-ink-950: #050b1f;
+  --color-ink-900: #0a1640;
+  --color-ink-800: #13245e;
+  --color-blue-600: #1458e6;
+  --color-blue-500: #1f6bff;
+  --color-blue-400: #5b91ff;
+  --color-cyan-400: #2ed3f0;
+  --color-paper-50: #f5f7fc;
+  --color-paper-100: #e7ecf7;
+  --color-paper-300: #c9d2e6;
+  --color-mist-300: #a8b3d1;
+  --color-slate-600: #4a5678;
+
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  --text-display: clamp(3rem, 8.5vw, 8rem);
+  --text-display--line-height: 0.95;
+  --text-h1: clamp(2.25rem, 5.5vw, 4.75rem);
+  --text-h1--line-height: 1;
+  --text-h2: clamp(2rem, 4vw, 3.5rem);
+  --text-h2--line-height: 1.05;
+  --text-h3: clamp(1.375rem, 2vw, 1.75rem);
+  --text-h3--line-height: 1.2;
+  --text-lead: clamp(1.125rem, 1.4vw, 1.3125rem);
+  --text-lead--line-height: 1.55;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+:root {
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
+  --dur-slow: 600ms;
+  --dur-draw: 1200ms;
+  --space-section: clamp(5rem, 12vw, 10rem);
+  --container: 1360px;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --cut: 12px;
+  --cut-panel: 20px;
+  --nav-h: 72px;
+}

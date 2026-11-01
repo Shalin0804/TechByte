@@ -2,7 +2,7 @@
 
 _Last updated: 2026-11-01 by Claude_
 
-**Current phase:** 2 (Design) is complete and 3 (Development) is starting. Next task: T01 (scaffold).
+**Current phase:** 3 (Development). T01 is done. Next: T02 (content data), which unblocks T03–T08 for Antigravity.
 
 ## 1. Business and service analysis
 
@@ -91,7 +91,7 @@ Each service page follows the same order: problem → how we solve it → what y
 | Phase | Scope | Status |
 |---|---|---|
 | 1 Research | Codefloor services, logo, owner decisions | done |
-| 2 Design | Concept, design system, architecture, tasks | done (awaiting Antigravity review) |
+| 2 Design | Concept, design system, architecture, tasks | done (reviewed by Antigravity, fixes applied) |
 | 3 Development | T01–T14 in TASKS.md | not started |
 | 4 Collab review | Claude reviews each Antigravity task; Antigravity reviews the API and forms UX | — |
 | 5 Optimization | Lighthouse, axe, SEO check, security review, responsive pass | — |

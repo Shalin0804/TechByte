@@ -19,15 +19,19 @@ Taken from the logo. Use the semantic tokens; primitive values are listed for re
 | `ink-950` | `#050B1F` | dark section background, hero |
 | `ink-900` | `#0A1640` | logo navy, dark panels, text on paper |
 | `ink-800` | `#13245E` | hairlines and raised surfaces on ink |
-| `blue-500` | `#1F6BFF` | brand electric blue: primary buttons, active traces |
+| `blue-500` | `#1F6BFF` | brand electric blue: active traces, accents |
+| `blue-600` | `#1458E6` | primary button fill (white text ≈ 5.5:1) |
 | `blue-400` | `#5B91FF` | blue text or links on ink (AA on ink-950) |
 | `cyan-400` | `#2ED3F0` | **signal only**: pulses, nodes, focus ring. Never body text, never large fills |
 | `paper-50` | `#F5F7FC` | light section background |
-| `paper-100` | `#E7ECF7` | hairlines and panels on paper |
+| `paper-100` | `#E7ECF7` | panels on paper |
+| `paper-300` | `#C9D2E6` | hairlines and inactive traces on paper |
 | `mist-300` | `#A8B3D1` | secondary text on ink |
 | `slate-600` | `#4A5678` | secondary text on paper |
 
-Rules: one blue CTA per viewport. Cyan stays under about 3% of any screen. White text on `blue-500` passes AA (4.6:1). Use `blue-400`, not `blue-500`, for text links on ink.
+Rules: one blue CTA per viewport. Cyan stays under about 3% of any screen. Use `blue-400`, not `blue-500`, for text links on ink.
+
+**Focus token** `--focus`: `cyan-400` inside `.on-ink` sections and `blue-600` inside `.on-paper` sections, both ≥ 3:1 against their background. Every section sets one of these two classes.
 
 Gradient (the only one): `radial-gradient` glow, from `blue-500` at 18% opacity to transparent, placed behind a hero node. No linear rainbow gradients.
 
@@ -47,7 +51,8 @@ Fluid scale (in `tokens.css`):
 - `lead` — clamp(1.125rem, 1.4vw, 1.3125rem)
 - `body` — 1rem; `small` — 0.875rem; `label` — 0.75rem mono
 
-Body text is at most 64ch wide. Every page has exactly one H1.
+Body text is at most 64ch wide. Article bodies are the one exception and use 68ch.
+Headings use `text-wrap: balance`. On phones the minimum size is the clamp floor, and long words such as "Modernization" must fit at 320px. Test this, and reduce the floor rather than letting text overflow. Every page has exactly one H1.
 
 **Index labels** are the signature typographic device: `01 — DISCOVER` in mono, set above headings and rows.
 
@@ -61,8 +66,10 @@ Body text is at most 64ch wide. Every page has exactly one H1.
 ## 5. Shape: the chamfer
 
 The logo's cut corners become the site's shape language. Buttons and panels use a **chamfer** (a 45° corner cut) instead of a border-radius:
-- `.chamfer` cuts the top-left and bottom-right corners by `--cut` (12px on buttons, 20px on panels), using `clip-path: polygon(...)`.
-- Hairline borders on chamfered shapes are drawn with an inset pseudo-element, because `clip-path` clips ordinary borders.
+- `.chamfer` cuts the top-left and bottom-right corners by `--cut` (12px on buttons, 20px on panels).
+- **The clip-path never goes on the element itself**, because it would clip the focus outline. The element stays unclipped and transparent. `::before` is the chamfered border layer (hairline colour, `clip-path: polygon(...)`). `::after` is the chamfered fill, inset by 1px with the same polygon. The content sits above both with `z-index`. The focus `outline` then follows the rectangular box at offset 3px, which is acceptable and visible.
+- The node at a cut sits centred on the midpoint of the diagonal: for a top-left cut of size c, that is (c/2, c/2).
+- The secondary button's hover trace runs along the bottom edge from x = 0 to x = 100% − cut, stopping where the bottom-right cut begins.
 - Small elements (tags, inputs) use radius 2px. Never use pill buttons or `rounded-2xl` cards.
 
 ## 6. Components
@@ -73,7 +80,7 @@ The logo's cut corners become the site's shape language. Buttons and panels use 
 - Text link: underline drawn as a trace, `scaleX` 0→1 from the left on hover.
 - Minimum target size 44×44px.
 
-**Panel** (replaces "cards"): hairline border, chamfer, and one **node** (a 6px ring) at the top-left cut. No drop shadows on ink. On paper, at most `0 1px 0` plus a 24px soft ambient shadow at 6%.
+**Panel** (replaces "cards"): hairline border, chamfer, and one **node** (a 6px ring) at the midpoint of the top-left cut. No drop shadows on ink. On paper, at most `0 1px 0` plus a 24px soft ambient shadow at 6%.
 
 **Trace**: a 1px SVG line in `ink-800` (on ink) or `paper-100` (on paper), with nodes at its ends. An active trace turns `blue-500`, and a signal pulse (a `cyan-400` dot with a 12px glow) can travel along it.
 
@@ -88,8 +95,9 @@ The logo's cut corners become the site's shape language. Buttons and panels use 
 1. **Hero: Trace Field.** On ink. The H1 sits on the left, cols 1–7. On the right, an inline-SVG TB monogram whose traces draw outward on load (stroke-dashoffset, 1.2s) to three terminal nodes labelled BUILD, INNOVATE and TRANSFORM. A signal pulse loops slowly along one trace. On desktop with a fine pointer, the nearest node glows as the pointer approaches. Text is never animated in a way that delays the LCP: the H1 is rendered visible and only gets a 300ms clip reveal.
 2. **Services: Signal Board.** Six full-width editorial rows (index, title in h2 size, one-line summary). On hover or focus, a row's trace lights up and a sticky preview panel on the right (desktop) shows that service's glyph and description. Each row is a link to its service page. On mobile, rows stack with the summary always visible, and there is no hover dependency.
 3. **Why TechByte.** Asymmetric: a statement on the left and five numbered principles on the right (problem-first, practical technology, business-focused, built to scale, quality and reliability). No icons.
-4. **Process: Pipeline.** Discover → Strategize → Design → Develop → Test → Launch → Support, as seven nodes on one trace. On desktop it is horizontal, and a CSS scroll-driven animation (`animation-timeline: view()`) advances the signal; browsers without support show the trace fully lit. On mobile it is a vertical trace.
-5. **Work: Open Slots.** Three chamfered frames with a wireframe drawing and the label "Case study slot — first projects in progress", plus a CTA to /get-a-quote. They are clearly placeholders, with no fake names or numbers.
+4. **Process: Pipeline.** Discover → Strategize → Design → Develop → Test → Launch → Support, as seven nodes on one trace. On desktop it is horizontal, and a CSS scroll-driven animation (`animation-timeline: view()`) advances the signal. Browsers without support (Firefox, Safari) fall back to IntersectionObserver lighting the nodes one by one as the section enters. Under reduced motion the trace is shown fully lit. On mobile it is a vertical trace.
+5. **Work band (home).** One compact band, not a grid of empty cards: a short honest line ("Our first case studies are being written up. Be one of them."), a single blueprint-style drawing, and links to /work and /get-a-quote.
+   **Open Slots (/work page).** Three chamfered frames, each holding a detailed engineering-blueprint drawing (grid, dimension lines, traces) and the label "Case study slot — in preparation". They are clearly placeholders, with no fake names or numbers, and they need to be crafted well enough to read as intentional.
 6. **Final CTA.** "Let's build it." in display size, the email as a large link, and the Let's Talk and Explore Our Work buttons.
 
 Each service has its own glyph: a small SVG made only from traces and nodes (custom software = branching tree, web app = panel grid, website = page outline, e-commerce = cart path, modernization = old trace rerouted, support = closed loop).
@@ -105,10 +113,12 @@ Each service has its own glyph: a small SVG made only from traces and nodes (cus
 - **Reveal**: elements marked `data-reveal` start at translateY(24px) with opacity 0 and animate in once at 15% visibility. Siblings stagger by 60ms. This only applies when JS has added `html.js`, so prerendered content is never hidden without JS.
 - **Page transitions**: the View Transitions API cross-fades the page and slides the main content 12px. Browsers without support get no transition.
 - **Loading**: no blocking preloader. The page renders immediately, and the hero trace-draw is the loading moment.
-- **Cursor**: on `(pointer: fine)` only, a 28px ring follows the pointer and grows over interactive elements. The native cursor is never hidden, and the ring is removed under reduced motion.
+- **Cursor**: on `(pointer: fine)` only, a 28px ring follows the pointer and grows over interactive elements. It is positioned directly from the `pointermove` coordinates (transform, no easing or lerp), so it never lags. The native cursor is never hidden, and the ring is removed under reduced motion.
 - **Parallax**: at most one layer per section (a hero glow or a background trace), translateY under 40px.
 - **Reduced motion**: every animation and transition over 150ms is disabled, traces are shown fully drawn, and the pulse is hidden.
-- **Budget**: animate only transform, opacity, stroke-dashoffset and clip-path. No scroll listeners in render paths (use IntersectionObserver or CSS). No scroll hijacking or smooth-scroll libraries.
+- **Budget**: animate only transform, opacity, stroke-dashoffset and clip-path. Looping animations such as the pulse pause when off-screen (`animation-play-state` toggled by IntersectionObserver). The nav uses backdrop blur only once it is in its scrolled state.
+- **Traces stay inside their component.** Each trace is drawn in the component's own SVG with a fixed `viewBox`. Never draw lines between DOM elements across the grid, since that needs measurement and resize math.
+- **Hydration rules**: `html.js` and `html.reduced` are set by an inline script in `index.html`, outside the React root. Pointer, reduced-motion and viewport checks happen in `useEffect` only. Initial React state must be deterministic, for example Signal Board's active index starts at 0. No scroll listeners in render paths (use IntersectionObserver or CSS). No scroll hijacking or smooth-scroll libraries.
 
 ## 9. Imagery and icons
 
