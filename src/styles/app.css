@@ -56,7 +56,7 @@ html:not(.reduced) .tb-check path { animation: tb-draw 600ms var(--ease-out) 450
 /* Numbered steps on paper: a line that draws when revealed. */
 .tb-step::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: var(--color-blue-600); transform-origin: left; }
 html.js:not(.reduced) .tb-step[data-reveal]::before { transform: scaleX(0); transition: transform 1s var(--ease-out) calc(var(--reveal-delay, 0ms) + 200ms); }
-html.js .tb-step[data-reveal].is-in::before { transform: scaleX(1); }
+html.js .tb-step[data-reveal][data-in]::before { transform: scaleX(1); }
 
 /* Route change: a signal sweeps across the top, then the page eases in. */
 .tb-route-trace {

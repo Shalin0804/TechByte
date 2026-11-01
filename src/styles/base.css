@@ -240,7 +240,7 @@ html.js:not(.reduced) [data-reveal] {
   opacity: 0;
   transform: translateY(24px);
 }
-html.js [data-reveal].is-in {
+html.js [data-reveal][data-in] {
   opacity: 1;
   transform: none;
   transition: opacity var(--dur-slow) var(--ease-out) var(--reveal-delay, 0ms),
