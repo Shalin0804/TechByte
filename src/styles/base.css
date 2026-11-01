@@ -377,3 +377,435 @@ html.reduced *, html.reduced *::before, html.reduced *::after {
   transition-duration: 1ms !important;
   scroll-behavior: auto !important;
 }
+
+/* =========================================================================
+   CINEMATIC ANIMATION SYSTEM — Phase 1
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. RICHER REVEAL SYSTEM
+   [data-reveal="clip"]  — headline cinematic clip from bottom
+   [data-reveal="fade"]  — ambient blur fade
+   [data-reveal]         — existing translateY (unchanged above)
+   ------------------------------------------------------------------------- */
+
+/* Clip-path reveal keyframe */
+@keyframes tb-reveal-clip {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0% 0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Blur-fade reveal keyframe */
+@keyframes tb-reveal-fade {
+  from {
+    opacity: 0;
+    filter: blur(40px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Hide until JS + motion-ok */
+html.js:not(.reduced) [data-reveal="clip"] {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(12px);
+}
+html.js:not(.reduced) [data-reveal="fade"] {
+  opacity: 0;
+  filter: blur(40px);
+}
+
+/* Animate in when intersection fires */
+html.js [data-reveal="clip"][data-in] {
+  animation: tb-reveal-clip var(--dur-slow, 600ms) var(--ease-out) var(--reveal-delay, 0ms) forwards;
+}
+html.js [data-reveal="fade"][data-in] {
+  animation: tb-reveal-fade var(--dur-slow, 600ms) var(--ease-out) var(--reveal-delay, 0ms) forwards;
+}
+
+/* Convenience standalone classes (no data-reveal wiring needed) */
+.tb-reveal-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-slow, 600ms) var(--ease-out),
+              transform var(--dur-slow, 600ms) var(--ease-out);
+}
+.tb-reveal-up.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.tb-reveal-clip {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(12px);
+  transition: clip-path var(--dur-slow, 600ms) var(--ease-out),
+              transform var(--dur-slow, 600ms) var(--ease-out),
+              opacity var(--dur-slow, 600ms) var(--ease-out);
+}
+.tb-reveal-clip.is-visible {
+  opacity: 1;
+  clip-path: inset(0 0 0% 0);
+  transform: none;
+}
+
+.tb-reveal-fade {
+  opacity: 0;
+  filter: blur(40px);
+  transition: opacity var(--dur-slow, 600ms) var(--ease-out),
+              filter var(--dur-slow, 600ms) var(--ease-out);
+}
+.tb-reveal-fade.is-visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* -------------------------------------------------------------------------
+   2. SECTION DIVIDER TRACE
+   ------------------------------------------------------------------------- */
+.tb-section-divider {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-ink-800);
+  overflow: hidden;
+}
+
+.tb-section-divider::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -8px;
+  width: 8px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-cyan-400);
+  box-shadow: 0 0 8px 2px rgba(46, 211, 240, 0.7);
+  animation: tb-divider-trace 2.4s var(--ease-out) 0.6s forwards;
+}
+
+@keyframes tb-divider-trace {
+  from { left: -8px; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  to   { left: calc(100% + 8px); opacity: 0; }
+}
+
+/* -------------------------------------------------------------------------
+   3. IMPROVED SIGNAL PULSE (enhanced keyframe, same class name)
+   Replace original keyframe with scale-breathing version.
+   ------------------------------------------------------------------------- */
+@keyframes signal-node-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(46, 211, 240, 0.4));
+    transform: scale(0.92);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(46, 211, 240, 0.95))
+            drop-shadow(0 0 18px rgba(31, 107, 255, 0.7));
+    transform: scale(1.0);
+  }
+}
+/* Note: .signal-node-pulse already declared above; this keyframe override
+   takes effect because CSS uses the last-defined @keyframes with the same name. */
+
+/* -------------------------------------------------------------------------
+   4. CINEMATIC TEXT GRADIENT
+   ------------------------------------------------------------------------- */
+.tb-gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-paper-50)  0%,
+    var(--color-blue-400)  60%,
+    var(--color-cyan-400)  100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* fallback for clip-unsupported */
+}
+
+/* -------------------------------------------------------------------------
+   5. AMBIENT GLOW UTILITIES
+   Never apply to text — decorative containers only.
+   ------------------------------------------------------------------------- */
+.tb-glow-blue {
+  box-shadow: 0 0 80px -20px rgba(31, 107, 255, 0.35);
+}
+.tb-glow-cyan {
+  box-shadow: 0 0 60px -10px rgba(46, 211, 240, 0.2);
+}
+
+/* -------------------------------------------------------------------------
+   6. INTERACTIVE HOVER LIFT
+   ------------------------------------------------------------------------- */
+.tb-lift {
+  transition: transform 400ms cubic-bezier(.16, 1, .3, 1);
+}
+.tb-lift:hover {
+  transform: translateY(-3px);
+}
+
+/* -------------------------------------------------------------------------
+   7. STAGGER CHILDREN DELAYS
+   Uses --reveal-delay CSS custom property fed to [data-reveal] transitions.
+   ------------------------------------------------------------------------- */
+.tb-stagger > *:nth-child(1) { --reveal-delay: 0ms; }
+.tb-stagger > *:nth-child(2) { --reveal-delay: 80ms; }
+.tb-stagger > *:nth-child(3) { --reveal-delay: 160ms; }
+.tb-stagger > *:nth-child(4) { --reveal-delay: 240ms; }
+.tb-stagger > *:nth-child(5) { --reveal-delay: 320ms; }
+.tb-stagger > *:nth-child(6) { --reveal-delay: 400ms; }
+
+/* -------------------------------------------------------------------------
+   8. HERO WORD REVEAL
+   Wrap each word in a <span class="tb-word-wrap"><span class="tb-word">…</span></span>
+   The outer span clips; the inner span animates.
+   ------------------------------------------------------------------------- */
+@keyframes tb-word-in {
+  from {
+    transform: translateY(110%) rotate(2deg);
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotate(0deg);
+    clip-path: inset(0 0 0% 0);
+    opacity: 1;
+  }
+}
+
+.tb-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.tb-word {
+  display: inline-block;
+  animation: tb-word-in 700ms var(--ease-out) var(--reveal-delay, 0ms) both;
+}
+
+/* -------------------------------------------------------------------------
+   9. SCAN-LINE OVERLAY (very subtle — hero backgrounds only)
+   ------------------------------------------------------------------------- */
+.tb-scanlines {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(255, 255, 255, 0.012) 2px,
+    rgba(255, 255, 255, 0.012) 3px
+  );
+}
+
+/* -------------------------------------------------------------------------
+   10. COUNTER ANIMATION
+   ------------------------------------------------------------------------- */
+@keyframes tb-count-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tb-count-animate {
+  animation: tb-count-up 500ms var(--ease-out) var(--reveal-delay, 0ms) both;
+}
+
+/* -------------------------------------------------------------------------
+   11. MAGNETIC BUTTON
+   JS supplies inline transform; this class ensures smooth reset.
+   ------------------------------------------------------------------------- */
+.tb-magnetic {
+  transition: transform 200ms ease;
+}
+
+/* -------------------------------------------------------------------------
+   12. LINE CLAMP UTILITIES
+   ------------------------------------------------------------------------- */
+.tb-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tb-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* -------------------------------------------------------------------------
+   13. NOISE TEXTURE
+   Micro-texture for dark sections via a tiny inline SVG.
+   ------------------------------------------------------------------------- */
+.tb-noise {
+  position: relative;
+  isolation: isolate;
+}
+
+.tb-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* -------------------------------------------------------------------------
+   14. SCROLL-DRIVEN SECTION ENTRY
+   Progressive enhancement — falls back to [data-reveal] in older browsers.
+   ------------------------------------------------------------------------- */
+@keyframes tb-section-enter {
+  from {
+    opacity: 0.3;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .tb-section-slide {
+    animation: tb-section-enter linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+
+/* =========================================================================
+   REDUCED-MOTION OVERRIDES FOR NEW UTILITIES
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  /* Reveal variants — show immediately, no clip/blur */
+  [data-reveal="clip"],
+  [data-reveal="fade"],
+  .tb-reveal-up,
+  .tb-reveal-clip,
+  .tb-reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Section divider — show dot at end position, no travel */
+  .tb-section-divider::after {
+    animation: none !important;
+    left: 100% !important;
+    opacity: 0 !important;
+  }
+
+  /* Signal pulse scale */
+  .signal-node-pulse {
+    transform: none !important;
+  }
+
+  /* Hover lift — no transform */
+  .tb-lift,
+  .tb-lift:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Word reveal — show immediately */
+  .tb-word {
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Count animate — show immediately */
+  .tb-count-animate {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Magnetic button — no transition */
+  .tb-magnetic {
+    transition: none !important;
+  }
+
+  /* Scroll-driven section entry — show at rest */
+  .tb-section-slide {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* html.reduced class mirror (JS-driven reduced motion) */
+html.reduced [data-reveal="clip"],
+html.reduced [data-reveal="fade"],
+html.reduced .tb-reveal-up,
+html.reduced .tb-reveal-clip,
+html.reduced .tb-reveal-fade {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  filter: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+html.reduced .tb-section-divider::after {
+  animation: none !important;
+  opacity: 0 !important;
+}
+html.reduced .signal-node-pulse {
+  transform: none !important;
+}
+html.reduced .tb-lift,
+html.reduced .tb-lift:hover {
+  transform: none !important;
+  transition: none !important;
+}
+html.reduced .tb-word {
+  animation: none !important;
+  transform: none !important;
+  clip-path: none !important;
+  opacity: 1 !important;
+}
+html.reduced .tb-count-animate {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+html.reduced .tb-magnetic {
+  transition: none !important;
+}
+html.reduced .tb-section-slide {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}

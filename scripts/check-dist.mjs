@@ -4,10 +4,13 @@ import fs from "node:fs";
 import path from "node:path";
 
 const files = [];
-const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
-  const p = path.join(d, e.name);
-  e.isDirectory() ? walk(p) : p.endsWith(".html") && files.push(p);
-});
+const walk = (d) => {
+  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+    const p = path.join(d, e.name);
+    if (e.isDirectory()) walk(p);
+    else if (p.endsWith(".html")) files.push(p);
+  }
+};
 walk("dist");
 
 const page = (u) => (u === "/" ? "dist/index.html" : fs.existsSync(`dist${u}.html`) ? `dist${u}.html` : null);
@@ -22,7 +25,7 @@ for (const f of files) {
   const h1 = (h.match(/<h1[\s>]/g) || []).length;
   if (h1 !== 1) bad.add(`${name}: ${h1} <h1>`);
   if (/href="#"/.test(h)) bad.add(`${name}: href="#"`);
-  const main = (h.match(/<main[^>]*>([\s\S]*)<\/main>/) || [, ""])[1]
+  const main = (h.match(/<main[^>]*>([\s\S]*)<\/main>/)?.[1] ?? "")
     .replace(/<(svg|script|style)[\s\S]*?<\/\1>/g, "")
     .replace(/<[^>]+>/g, " ");
   words.push([main.split(/\s+/).filter(Boolean).length, name]);
