@@ -31,22 +31,22 @@ Status values: `planned` · `writing` (Claude) · `ready` (data written and revi
 
 | Page | Words target | Data file | Copy | Layout |
 |---|---|---|---|---|
-| Home | 1,200–1,800 | home.js, site.js | planned | building (T05/T06) |
-| About | 700–1,000 | about.js | planned | building (T08) |
-| Services overview | ~500 | services.js | planned | building (T07) |
-| Software Development | 900–1,400 | services.js | planned | building (T07) |
-| Website Development | 900–1,400 | services.js | planned | building (T07) |
-| Web Application Development | 900–1,400 | services.js | planned | building (T07) |
-| Mobile Application Development | 900–1,400 | services.js | planned | building (T07) |
-| AI & Automation | 900–1,400 | services.js | planned | building (T07) |
-| IT Consulting | 900–1,400 | services.js | planned | building (T07) |
-| Development Process (new) | 800–1,200 | process.js | planned | planned |
-| Technologies (new) | 700–1,000 | technologies.js | planned | planned |
-| Industries (new) | 7 × 250–400 | industries.js | planned | planned |
-| Our Work | n/a (verified only) | projects.js | planned | building (T08) |
-| Insights (10 articles) | 10 × 1,000–1,500 | insights.js | 3 drafts exist | building (T08) |
-| FAQ Center (new) | 25–35 Qs | faq.js | planned | planned |
-| Contact / Get a Quote | ~400 / ~350 | site.js | planned | done (Claude) |
+| Home | 1,200–1,800 | home.js, site.js | ready | done |
+| About | 700–1,000 | about.js | ready | done |
+| Services overview | ~500 | services.js | ready | done |
+| Software Development | 900–1,400 | services/*.js | ready (800–1,160) | done |
+| Website Development | 900–1,400 | services/*.js | ready (800–1,160) | done |
+| Web Application Development | 900–1,400 | services/*.js | ready (800–1,160) | done |
+| Mobile Application Development | 900–1,400 | services/*.js | ready (800–1,160) | done |
+| AI & Automation | 900–1,400 | services/*.js | ready (800–1,160) | done |
+| IT Consulting | 900–1,400 | services/*.js | ready (800–1,160) | done |
+| Development Process (new) | 800–1,200 | process.js | ready | done |
+| Technologies (new) | 700–1,000 | technologies.js | ready | done |
+| Industries (new) | 7 × 250–400 | industries.js | ready | done |
+| Our Work | n/a (verified only) | projects.js | planned | done |
+| Insights (11 articles) | 10 × 1,000–1,500 | insights/*.js | ready (730–1,070 words; quote checklist ~450) | done |
+| FAQ Center (new) | 25–35 Qs | faq.js | ready (29 Qs) | done |
+| Contact / Get a Quote | ~400 / ~350 | contact.js | ready | done (Claude) |
 
 ## Content gaps waiting on the owner
 

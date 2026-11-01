@@ -2,7 +2,7 @@
 
 _Last updated: 2026-11-01 by Claude_
 
-**Current phase:** 3 (Development). T01 is done. Next: T02 (content data), which unblocks T03–T08 for Antigravity.
+**Current phase:** content expansion. C1–C3 (copy) are done and committed, C4 (Antigravity layouts) is in progress, and C5 (review) is next. See CONTENT_STATUS.md.
 
 ## 1. Business and service analysis
 
@@ -11,7 +11,7 @@ _Last updated: 2026-11-01 by Claude_
 **What the business actually does:** design and development of custom software, web applications, business websites and e-commerce, plus modernization of existing sites and support after launch. The tech stack is listed in AGENTS.md.
 
 **Decisions made with the owner (2026-11-01):**
-- TechByte offers **Codefloor's six real services only**. The brief's Mobile Apps, AI & Automation and IT Consulting were dropped because they are not currently delivered and would be invented capabilities.
+- **Superseded the same day:** the owner confirmed the six services Software, Website, Web Application, Mobile App (React Native), AI & Automation and IT Consulting, plus the technologies in CONTENT_STRATEGY.md §1.
 - TechByte is a **separate company**, so Codefloor's projects are not shown. The portfolio starts as labelled empty slots.
 - The contact details are TechByte's own (see AGENTS.md).
 - **2026-11-01 update:** the owner asked for a fully static site with no admin dashboard and no backend. Forms compose the message and send it through WhatsApp or email.

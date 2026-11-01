@@ -154,6 +154,13 @@ h1, h2, h3 {
   box-shadow: 0 1px 0 rgba(10, 22, 64, 0.05), 0 24px 32px -12px rgba(10, 22, 64, 0.06);
 }
 
+/* Plain chamfer surfaces on paper sections get paper colours too. :where() keeps this at the
+   specificity of .chamfer, so the button modifiers below still win. */
+:where(.on-paper) .chamfer {
+  --chamfer-border: var(--color-paper-300);
+  --chamfer-bg: var(--color-paper-100);
+}
+
 /* Button variant modifiers */
 .btn-primary {
   --chamfer-border: var(--color-blue-500);

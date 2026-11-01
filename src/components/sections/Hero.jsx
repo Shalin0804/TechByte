@@ -125,22 +125,6 @@ export default function Hero() {
                 Explore Our Work
               </Button>
             </div>
-
-            {/* Engineering standard indicator */}
-            <div className="pt-6 border-t border-ink-800/80 flex flex-wrap items-center gap-6 text-xs font-mono text-mist-300">
-              <div className="flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-blue-500" />
-                <span>Zero bloated templates</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-blue-500" />
-                <span>Direct partner engineering</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-cyan-400" />
-                <span>Ahmedabad · Worldwide remote</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Hand-drawn T+B Monogram "Trace Field" (cols 8-12) */}

@@ -1,14 +1,13 @@
 /**
- * ServiceGlyph component implementing DESIGN_SYSTEM §7 & TASKS.md T06.
+ * ServiceGlyph component implementing DESIGN_SYSTEM §7 & TASKS.md C4.
  * 64×64 viewBox with stroke="currentColor" at 1.5px, aria-hidden="true".
- * Supports both updated owner-confirmed slugs and legacy aliases.
- * Crafted purely from traces and nodes:
- *  - software-development / custom-software-development: branching logic tree
- *  - website-development / business-website-development: clean page layout with hierarchy
+ * Exclusively provides glyphs for the six owner-confirmed services:
+ *  - software-development: branching logic tree
+ *  - website-development: page outline with traces
  *  - web-application-development: modular panel grid with data flow traces
- *  - mobile-app-development: phone viewport with reactive signal nodes
- *  - ai-automation: neural network / intelligent signal circuit
- *  - it-consulting: architectural diagnostics radar / roadmap trace
+ *  - mobile-app-development: phone outline with reactive traces and nodes
+ *  - ai-automation: neural network / node matrix
+ *  - it-consulting: compass / architectural roadmap trace
  */
 export default function ServiceGlyph({ slug, className = "" }) {
   const commonProps = {
@@ -25,7 +24,6 @@ export default function ServiceGlyph({ slug, className = "" }) {
 
   switch (slug) {
     case "software-development":
-    case "custom-software-development":
       // Branching logic tree
       return (
         <svg {...commonProps}>
@@ -42,8 +40,7 @@ export default function ServiceGlyph({ slug, className = "" }) {
       );
 
     case "website-development":
-    case "business-website-development":
-      // Clean page outline with structured editorial blocks
+      // Clean page outline with structured editorial traces
       return (
         <svg {...commonProps}>
           <rect x="12" y="8" width="40" height="48" rx="2" />
@@ -75,7 +72,7 @@ export default function ServiceGlyph({ slug, className = "" }) {
       );
 
     case "mobile-app-development":
-      // Phone silhouette with responsive layout and touch node
+      // Phone silhouette with responsive traces and home node
       return (
         <svg {...commonProps}>
           <rect x="18" y="8" width="28" height="48" rx="4" />
@@ -95,12 +92,12 @@ export default function ServiceGlyph({ slug, className = "" }) {
           <circle cx="16" cy="18" r="3" fill="var(--color-ink-950)" stroke="var(--color-blue-500)" />
           <circle cx="16" cy="32" r="3" fill="var(--color-ink-950)" stroke="var(--color-blue-500)" />
           <circle cx="16" cy="46" r="3" fill="var(--color-ink-950)" stroke="var(--color-blue-500)" />
-          {/* Hidden/Processing layer */}
+          {/* Processing layer */}
           <circle cx="34" cy="24" r="3.5" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" />
           <circle cx="34" cy="40" r="3.5" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" />
           {/* Output layer */}
           <circle cx="50" cy="32" r="4" fill="var(--color-cyan-400)" stroke="none" className="signal-node-pulse" />
-          {/* Trace connections */}
+          {/* Connections */}
           <line x1="19" y1="18" x2="31" y2="24" stroke="currentColor" opacity="0.4" />
           <line x1="19" y1="32" x2="31" y2="24" stroke="currentColor" opacity="0.4" />
           <line x1="19" y1="32" x2="31" y2="40" stroke="currentColor" opacity="0.4" />
@@ -111,7 +108,7 @@ export default function ServiceGlyph({ slug, className = "" }) {
       );
 
     case "it-consulting":
-      // Strategic architectural radar / diagnostic roadmap
+      // Compass / branching architectural roadmap trace
       return (
         <svg {...commonProps}>
           <circle cx="32" cy="32" r="22" stroke="currentColor" strokeDasharray="3 3" opacity="0.4" />
@@ -121,41 +118,6 @@ export default function ServiceGlyph({ slug, className = "" }) {
           <line x1="32" y1="10" x2="32" y2="54" stroke="currentColor" opacity="0.3" />
           <path d="M32 32 L46 18" stroke="var(--color-cyan-400)" strokeWidth="2" />
           <circle cx="46" cy="18" r="2.5" fill="var(--color-cyan-400)" stroke="none" />
-        </svg>
-      );
-
-    case "ecommerce-development":
-      // Circuit cart path
-      return (
-        <svg {...commonProps}>
-          <path d="M12 16 H20 L26 40 H46 L52 22 H22" />
-          <circle cx="28" cy="48" r="3" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" />
-          <circle cx="44" cy="48" r="3" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" />
-          <path d="M30 26 H42 M36 20 V32" stroke="var(--color-blue-400)" strokeWidth="1.5" />
-          <circle cx="52" cy="22" r="2" fill="var(--color-cyan-400)" stroke="none" />
-        </svg>
-      );
-
-    case "website-modernization":
-      // Modernized path
-      return (
-        <svg {...commonProps}>
-          <path d="M10 20 L20 28 L30 16 L40 26 L54 18" strokeDasharray="3 3" opacity="0.4" />
-          <path d="M10 44 H26 L34 36 H54" stroke="var(--color-blue-500)" strokeWidth="2" />
-          <circle cx="10" cy="44" r="2.5" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" />
-          <circle cx="34" cy="36" r="2.5" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" />
-          <circle cx="54" cy="36" r="3" fill="var(--color-cyan-400)" stroke="none" className="signal-node-pulse" />
-        </svg>
-      );
-
-    case "support-and-maintenance":
-      // Orbit loop
-      return (
-        <svg {...commonProps}>
-          <circle cx="32" cy="32" r="22" stroke="currentColor" strokeDasharray="4 4" />
-          <path d="M14 32 H24 L28 22 L36 42 L40 32 H50" stroke="var(--color-blue-500)" strokeWidth="2" />
-          <circle cx="32" cy="10" r="2.5" fill="var(--color-cyan-400)" stroke="none" className="signal-node-pulse" />
-          <circle cx="32" cy="54" r="2.5" fill="var(--color-blue-400)" stroke="none" />
         </svg>
       );
 

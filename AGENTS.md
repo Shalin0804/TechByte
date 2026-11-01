@@ -4,20 +4,22 @@ Project root (absolute): `D:\CF\Codes\Website code\TechByte`
 
 When calling the claude-code MCP tool, always pass absolute paths under this project root — the tool's working directory is Antigravity's install folder, not this project.
 
-Read before working: `PROJECT_STATUS.md` (state, architecture, roadmap), `DESIGN_SYSTEM.md` (visual rules), `TASKS.md` (who does what).
+Read before working: `PROJECT_STATUS.md` (state, architecture, roadmap), `DESIGN_SYSTEM.md` (visual rules), `CONTENT_STRATEGY.md` (facts, voice, SEO), `CONTENT_STATUS.md` (content tracker), `TASKS.md` (who does what).
+
+All copy lives in `src/data/` (Claude). Components only render it (Antigravity). Logo files are in `public/brand/` (`-light` variants are for dark backgrounds).
 
 ## Company facts (the only facts the site may state)
 
 - Name: **The TechByte**. Tagline: **Build • Innovate • Transform**.
 - Email: techbyte0804@gmail.com · Phone: +91 76984 75791 · Location: Ahmedabad, Gujarat, India.
 - Domain: temporary Vercel domain, set once in `src/data/site.js` (`SITE_URL`).
-- Services (exactly six, see `src/data/services.js`): Custom Software Development, Web Application Development, Business Website Development, E-commerce Development, Website Modernization, Support & Maintenance.
-- Technologies (only these may be named): React, JavaScript, Vite, Node.js, Express, PHP, Laravel, Python, Django, MySQL, PostgreSQL, MongoDB, WordPress, WooCommerce, Razorpay.
+- Services (exactly six, owner-confirmed 2026-11-01, see `src/data/services/`): Software Development, Website Development, Web Application Development, Mobile Application Development (React Native), AI & Automation, IT Consulting.
+- Technologies: only those in `src/data/technologies.js` (see CONTENT_STRATEGY.md §1). Name no AI vendors until the owner confirms them.
 - Portfolio: **no projects yet**. The Work page shows clearly-labelled empty slots.
 
 ## Hard rules
 
-1. Never invent clients, projects, testimonials, statistics, years in business, team size, certifications, awards, or technologies. No fake reviews. No mobile-app or AI service claims.
+1. Never invent clients, projects, testimonials, statistics, years in business, team size, certifications, awards, or technologies. No fake reviews. No unrealistic AI promises.
 2. TechByte is a separate brand from Codefloor IT. Do not reuse Codefloor's UI, components, copy, robot/assistant, 3D scenes, fonts (Inter, Space Grotesk) or layouts. Codefloor was used only to learn the service offering.
 3. No dead buttons or `href="#"`. Every CTA goes to a real route, `mailto:`, `tel:` or WhatsApp.
 4. The site is fully static: no backend, database or admin. Forms validate in the browser (`src/lib/validate.js`), then hand the composed message to WhatsApp or email. Never claim a message was sent.

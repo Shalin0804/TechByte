@@ -13,7 +13,7 @@ export default function PageHeader({
   className = "",
 }) {
   return (
-    <header className={`pt-12 pb-16 sm:pt-16 sm:pb-24 border-b border-ink-800/80 relative ${className}`}>
+    <header className={`pt-[calc(var(--nav-h)+3rem)] pb-16 sm:pt-[calc(var(--nav-h)+4rem)] sm:pb-24 border-b border-ink-800/80 relative ${className}`}>
       {/* Background subtle signal trace */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30 select-none" aria-hidden="true">
         <svg

@@ -1,15 +1,17 @@
 import { Link } from "react-router";
 import { Mail, Phone, MessageSquare } from "lucide-react";
-import { COMPANY, CONTACT, NAV, whatsappLink } from "../../data/site";
+import { COMPANY, CONTACT, whatsappLink } from "../../data/site";
 import { services } from "../../data/services";
 import Button from "../ui/Button";
 
 /**
- * Footer component implementing DESIGN_SYSTEM §6 & TASKS.md T04.
+ * Footer component implementing DESIGN_SYSTEM §6 & TASKS.md C4.
  * - Deep navy ink background (on-ink)
  * - Large "Let's build it." statement with interactive CTA
+ * - Real logo: /brand/logo-full-light.png (~h 120-160px, lazy)
  * - Contact details with real mailto, tel, and WhatsApp links
- * - Full sitemap columns including all 6 services and legal routes
+ * - Columns: Services (six), Company (About, Process, Technologies, Industries, Work),
+ *   Resources (Insights, FAQ, Get a Quote, Contact), Legal
  * - Official tagline and copyright
  */
 export default function Footer() {
@@ -27,7 +29,7 @@ export default function Footer() {
       </div>
 
       <div className="container-x relative z-10">
-        {/* Top Feature Banner: "Let's build it." */}
+        {/* Top banner. Its headline differs from the pages' final CTA ("Let's build it.") so the two never repeat back to back. */}
         <div className="border-b border-ink-800 pb-16 lg:pb-20" data-reveal>
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
@@ -35,7 +37,7 @@ export default function Footer() {
                 00 — NEXT STEPS
               </span>
               <p className="mt-4 font-display text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-paper-50 leading-[0.95]">
-                Let's build it.
+                Have a project in mind?
               </p>
               <p className="mt-4 text-lead text-mist-300 max-w-xl">
                 Have a project or workflow ready for real engineering? We reply with an honest read on scope, architecture and fit.
@@ -51,25 +53,30 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
               >
-                WhatsApp Chat
+                WhatsApp Chat<span className="sr-only"> (opens in a new tab)</span>
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Middle Sitemap & Contact Grid */}
-        <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12 border-b border-ink-800" data-reveal>
-          {/* Col 1: Studio info (cols 1-4) */}
-          <div className="lg:col-span-4 space-y-6">
-            <Link to="/" className="inline-block">
-              <span className="font-display text-xl font-bold tracking-tight text-paper-50">
-                {COMPANY.name}
-              </span>
+        {/* Middle Sitemap & Contact Grid (5 columns: Brand, Services, Company, Resources, Legal) */}
+        <div className="grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-12 border-b border-ink-800" data-reveal>
+          {/* Col 1: Studio info + Logo (cols 1-4) */}
+          <div className="lg:col-span-4 space-y-4">
+            <Link to="/" className="inline-block" aria-label={`${COMPANY.name} — Home`}>
+              <img
+                src="/brand/logo-full-light.png"
+                alt="The TechByte — Build • Innovate • Transform"
+                width="171"
+                height="130"
+                loading="lazy"
+                className="h-28 sm:h-32 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-mist-300 max-w-sm leading-relaxed">
               {COMPANY.description}
             </p>
-            <address className="not-italic space-y-2.5 text-sm text-mist-300">
+            <address className="not-italic space-y-2.5 text-sm text-mist-300 pt-2">
               <p className="flex items-center gap-2">
                 <Mail className="size-4 text-cyan-400 shrink-0" aria-hidden="true" />
                 <a
@@ -100,13 +107,13 @@ export default function Footer() {
                 </a>
               </p>
               <p className="pt-2 text-xs font-mono text-mist-300">
-                Studio: {CONTACT.location}
+                Location: {CONTACT.location}
               </p>
             </address>
           </div>
 
-          {/* Col 2: Services List (cols 5-8) */}
-          <div className="lg:col-span-4">
+          {/* Col 2: Services List (six) (cols 5-7) */}
+          <div className="lg:col-span-3">
             <h2 className="font-mono text-label uppercase tracking-[0.14em] text-paper-50 mb-6">
               Services
             </h2>
@@ -125,57 +132,87 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Navigation & Company (cols 9-10) */}
+          {/* Col 3: Company (cols 8-9) */}
           <div className="lg:col-span-2">
             <h2 className="font-mono text-label uppercase tracking-[0.14em] text-paper-50 mb-6">
-              Studio
+              Company
             </h2>
             <ul className="space-y-3 text-sm">
-              {NAV.map((n) => (
-                <li key={n.to}>
-                  <Link
-                    to={n.to}
-                    className="text-mist-300 hover:text-paper-50 transition-colors"
-                  >
-                    {n.label}
-                  </Link>
-                </li>
-              ))}
               <li>
-                <Link
-                  to="/get-a-quote"
-                  className="text-blue-400 hover:text-cyan-400 font-medium transition-colors"
-                >
-                  Get a Quote
+                <Link to="/about" className="text-mist-300 hover:text-paper-50 transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/process" className="text-mist-300 hover:text-paper-50 transition-colors">
+                  Process
+                </Link>
+              </li>
+              <li>
+                <Link to="/technologies" className="text-mist-300 hover:text-paper-50 transition-colors">
+                  Technologies
+                </Link>
+              </li>
+              <li>
+                <Link to="/industries" className="text-mist-300 hover:text-paper-50 transition-colors">
+                  Industries
+                </Link>
+              </li>
+              <li>
+                <Link to="/work" className="text-mist-300 hover:text-paper-50 transition-colors">
+                  Work
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Legal & Standards (cols 11-12) */}
+          {/* Col 4: Resources (cols 10-11) */}
           <div className="lg:col-span-2">
             <h2 className="font-mono text-label uppercase tracking-[0.14em] text-paper-50 mb-6">
-              Standards
+              Resources
+            </h2>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <Link to="/insights" className="text-mist-300 hover:text-paper-50 transition-colors">
+                  Insights
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="text-mist-300 hover:text-paper-50 transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/get-a-quote" className="text-blue-400 hover:text-cyan-400 font-medium transition-colors">
+                  Get a Quote
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-mist-300 hover:text-paper-50 transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 5: Legal (col 12) */}
+          <div className="lg:col-span-1">
+            <h2 className="font-mono text-label uppercase tracking-[0.14em] text-paper-50 mb-6">
+              Legal
             </h2>
             <ul className="space-y-3 text-sm text-mist-300">
               <li>
-                <Link
-                  to="/privacy-policy"
-                  className="hover:text-paper-50 transition-colors"
-                >
-                  Privacy Policy
+                <Link to="/privacy-policy" className="hover:text-paper-50 transition-colors">
+                  Privacy
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/terms"
-                  className="hover:text-paper-50 transition-colors"
-                >
-                  Terms &amp; Conditions
+                <Link to="/terms" className="hover:text-paper-50 transition-colors">
+                  Terms
                 </Link>
               </li>
-              <li className="pt-4 text-xs font-mono text-mist-300/80">
-                WCAG 2.2 AA Compliant
+              <li className="pt-4 text-[11px] font-mono text-mist-300/80">
+                WCAG 2.2 AA
               </li>
             </ul>
           </div>

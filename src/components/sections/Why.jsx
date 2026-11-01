@@ -3,10 +3,10 @@ import Label from "../ui/Label";
 import Section from "../ui/Section";
 
 /**
- * Why TechByte section implementing DESIGN_SYSTEM §7.3 & TASKS.md T06.
+ * Why TechByte section implementing DESIGN_SYSTEM §7.3 & TASKS.md C4.
  * Asymmetric editorial layout on paper:
  * - Left column (cols 1-5): Confident studio statement
- * - Right column (cols 6-12): Five numbered principles from site.js (WHY).
+ * - Right column (cols 6-12): Six numbered principles from site.js (WHY).
  * - Strictly NO generic icons — typography, indices, and hairline traces only.
  */
 export default function Why() {
@@ -15,30 +15,24 @@ export default function Why() {
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Left Column (cols 1-5): Editorial Statement */}
         <div className="lg:col-span-5 space-y-6" data-reveal>
-          <Label index="03" color="blue">
+          <Label index="07" color="blue">
             Why The TechByte
           </Label>
           <h2 className="text-h2 text-ink-900 tracking-tight leading-[1.05]">
             Engineering shaped around the way your business actually works.
           </h2>
           <p className="text-lead text-slate-600 max-w-[48ch] leading-relaxed">
-            We don't sell pre-packaged templates, off-the-shelf workarounds, or technology for its own sake. Every project starts by understanding your operational reality.
+            We solve the problem in front of you instead of engineering for problems you don't have. Every project starts by understanding your operational reality.
           </p>
-
-          <div className="pt-6 border-t border-paper-300">
-            <p className="font-mono text-xs uppercase tracking-[0.14em] text-slate-600">
-              No junior handoffs · Direct partner involvement
-            </p>
-          </div>
         </div>
 
-        {/* Right Column (cols 6-12): Five Numbered Principles */}
+        {/* Right Column (cols 6-12): Six Numbered Principles */}
         <div className="lg:col-span-7 flex flex-col divide-y divide-paper-300 border-y border-paper-300" data-reveal-group>
           {WHY.map((item, idx) => (
             <div
               key={item.title}
               data-reveal
-              className="py-8 sm:py-10 grid gap-4 sm:grid-cols-12 items-baseline"
+              className="py-8 sm:py-9 grid gap-4 sm:grid-cols-12 items-baseline"
             >
               {/* Mono Index */}
               <div className="sm:col-span-3">

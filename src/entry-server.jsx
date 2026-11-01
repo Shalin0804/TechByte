@@ -38,7 +38,9 @@ export async function render(url) {
           <App />
         </StaticRouter>
       </SeoContext>
-    </StrictMode>
+    </StrictMode>,
+    // never outline large Suspense boundaries: page content must sit inline in <main> for crawlers and no-JS readers
+    { progressiveChunkSize: Infinity }
   );
   const html = await new Response(prelude).text();
   if (!sink.current) throw new Error(`No <Seo> rendered for ${url}`);
