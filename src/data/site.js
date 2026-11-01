@@ -34,7 +34,7 @@ export const HERO = {
   eyebrow: "Software & web development company · Ahmedabad",
   title: "From the first byte to the business it transforms.",
   lead:
-    "The TechByte designs and engineers websites, web and mobile applications, custom software and practical AI automation for businesses that have outgrown workarounds — and stays on after launch to keep them running.",
+    "The TechByte designs and engineers websites, web and mobile applications and custom software for businesses that have outgrown workarounds — and stays on after launch to keep them running.",
 };
 
 export const PILLARS = [

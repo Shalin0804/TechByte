@@ -90,6 +90,6 @@ export default {
     { q: "Is consulting useful for small businesses?", a: "Often especially so. A short, focused review can prevent a small business from investing in the wrong tool or an oversized project." },
     { q: "How is consulting priced?", a: "It depends on scope, from a focused review to a longer planning engagement. We agree the scope and cost before starting." },
   ],
-  related: ["software-development", "ai-automation", "web-application-development"],
+  related: ["software-development", "web-application-development", "mobile-app-development"],
   articles: ["choosing-the-right-technology-stack", "signs-your-business-needs-software-modernization"],
 };

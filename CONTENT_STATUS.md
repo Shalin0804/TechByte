@@ -38,18 +38,16 @@ Status values: `planned` · `writing` (Claude) · `ready` (data written and revi
 | Website Development | 900–1,400 | services/*.js | ready (800–1,160) | done |
 | Web Application Development | 900–1,400 | services/*.js | ready (800–1,160) | done |
 | Mobile Application Development | 900–1,400 | services/*.js | ready (800–1,160) | done |
-| AI & Automation | 900–1,400 | services/*.js | ready (800–1,160) | done |
 | IT Consulting | 900–1,400 | services/*.js | ready (800–1,160) | done |
 | Development Process (new) | 800–1,200 | process.js | ready | done |
 | Technologies (new) | 700–1,000 | technologies.js | ready | done |
 | Industries (new) | 7 × 250–400 | industries.js | ready | done |
 | Our Work | n/a (verified only) | projects.js | planned | done |
-| Insights (11 articles) | 10 × 1,000–1,500 | insights/*.js | ready (730–1,070 words; quote checklist ~450) | done |
-| FAQ Center (new) | 25–35 Qs | faq.js | ready (29 Qs) | done |
+| Insights (10 articles; the AI article was removed) | 10 × 1,000–1,500 | insights/*.js | ready (730–1,070 words; quote checklist ~450) | done |
+| FAQ Center (new) | 25–35 Qs | faq.js | ready (25 Qs, AI category removed) | done |
 | Contact / Get a Quote | ~400 / ~350 | contact.js | ready | done (Claude) |
 
 ## Content gaps waiting on the owner
 
-- AI tools to name (currently vendor-neutral).
 - Verified project details for case studies.
 - An author name for articles (default: The TechByte Team).

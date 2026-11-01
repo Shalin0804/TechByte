@@ -4,7 +4,7 @@ export const INTRO = {
   label: "Who we are",
   title: "A technology partner that starts with your business, not with code.",
   paragraphs: [
-    "The TechByte is a software and web development company based in Ahmedabad, Gujarat, working with clients in India and abroad. We design and build websites, web applications, mobile apps and custom software, and we help businesses automate repetitive work and plan their technology with confidence.",
+    "The TechByte is a software and web development company based in Ahmedabad, Gujarat, working with clients in India and abroad. We design and build websites, web applications, mobile apps and custom software, and we help businesses plan their technology with confidence.",
     "We work with startups turning an idea into a first product, small and mid-sized businesses replacing spreadsheets and manual processes, growing companies whose systems no longer keep up, and established organisations modernizing parts of their technology.",
     "Our approach is simple: understand how the work happens today, agree what will make the biggest difference, build it in visible steps and stay around after launch. Innovation, for us, means choosing practical, current technology that solves the problem in front of you. It does not mean adding complexity for its own sake.",
   ],
@@ -12,7 +12,7 @@ export const INTRO = {
 
 export const SERVICES_INTRO = {
   label: "What we do",
-  title: "Six ways we help businesses build, innovate and transform.",
+  title: "Five ways we help businesses build, innovate and transform.",
   lead: "Each service solves a different kind of problem. Many projects combine several, for example a website, a web application behind it and a mobile app for customers.",
 };
 
@@ -22,7 +22,6 @@ export const SERVICE_WHEN = {
   "website-development": "When your website needs to build trust and bring in enquiries.",
   "web-application-development": "When customers or staff need to log in and get things done online.",
   "mobile-app-development": "When people need your service in their pocket, with notifications and device features.",
-  "ai-automation": "When your team loses hours to repetitive copying, sorting and chasing.",
   "it-consulting": "When you need clear advice before committing budget to technology.",
 };
 
@@ -30,7 +29,7 @@ export const PROBLEMS = {
   label: "Problems we solve",
   title: "The challenges that hold growing businesses back.",
   items: [
-    { h: "Manual, repetitive processes", p: "Data typed twice, approvals chased by phone, reports assembled by hand every week.", fix: "We automate the predictable steps and connect the systems involved, so people handle only the exceptions.", service: "ai-automation" },
+    { h: "Manual, repetitive processes", p: "Data typed twice, approvals chased by phone, reports assembled by hand every week.", fix: "We build software that handles the predictable steps and connects the systems involved, so people handle only the exceptions.", service: "software-development" },
     { h: "Outdated websites", p: "Slow pages, broken mobile layouts and a message that no longer reflects the business.", fix: "We redesign or rebuild for speed, clarity and search visibility, keeping your content and URLs.", service: "website-development" },
     { h: "Disconnected systems", p: "Sales, operations and accounts each live in a different tool, and nothing lines up.", fix: "We integrate existing tools through APIs or build one system around the workflow that matters most.", service: "software-development" },
     { h: "Inefficient workflows", p: "Work stalls between people because nobody can see what's pending or who owns it.", fix: "We build workflow software with statuses, notifications and dashboards that make progress visible.", service: "web-application-development" },
@@ -78,7 +77,7 @@ export const CTA = {
 };
 
 export const HOME_FAQ = [
-  { q: "What does The TechByte do?", a: "The TechByte is a software and web development company in Ahmedabad, Gujarat. We build websites, web applications, mobile apps and custom software, automate repetitive business processes and provide IT consulting, with support after launch." },
+  { q: "What does The TechByte do?", a: "The TechByte is a software and web development company in Ahmedabad, Gujarat. We build websites, web applications, mobile apps and custom software and provide IT consulting, with support after launch." },
   { q: "Who do you work with?", a: "Startups, entrepreneurs, small and mid-sized businesses, growing companies and larger organisations modernizing parts of their technology: anyone who needs software or a website built around how they actually work." },
   { q: "Do you work with clients outside Ahmedabad?", a: "Yes. We're based in Ahmedabad and work remotely with clients across India and internationally, by email, phone, WhatsApp and video calls." },
   { q: "Do I need to know which technology I need?", a: "No. Most projects start with a business problem, not a tech stack. We recommend the approach and technologies that fit your requirements and explain why." },

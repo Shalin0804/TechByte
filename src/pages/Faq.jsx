@@ -37,7 +37,7 @@ export default function Faq() {
     <>
       <Seo
         title="Frequently Asked Questions"
-        description="Answers about The TechByte's services, websites, web and mobile apps, AI and automation, pricing, project planning and support."
+        description="Answers about The TechByte's services, websites, web and mobile apps, pricing, project planning and support."
         path="/faq"
         schema={[
           faqSchema(ALL_FAQS),

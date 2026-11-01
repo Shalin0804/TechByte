@@ -63,6 +63,16 @@
       "source": "/insights/signs-your-website-needs-modernization",
       "destination": "/insights/signs-your-business-needs-software-modernization",
       "permanent": true
+    },
+    {
+      "source": "/services/ai-automation",
+      "destination": "/services/software-development",
+      "permanent": true
+    },
+    {
+      "source": "/insights/how-ai-can-improve-business-operations",
+      "destination": "/insights",
+      "permanent": true
     }
   ]
 }

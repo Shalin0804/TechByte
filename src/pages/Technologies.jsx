@@ -47,7 +47,7 @@ export default function Technologies() {
     <>
       <Seo
         title="Technologies We Work With"
-        description="The frontend, backend, mobile, database, AI and cloud technologies The TechByte uses, and how we choose the right stack for each project."
+        description="The frontend, backend, mobile, database, CMS and cloud technologies The TechByte uses, and how we choose the right stack for each project."
         path="/technologies"
         schema={[
           breadcrumbSchema([

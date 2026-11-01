@@ -11,7 +11,7 @@ import FinalCta from "../components/sections/FinalCta";
 /**
  * Services overview page implementing TASKS.md C4.
  * - Single H1 via PageHeader.
- * - Six services as rich rows: title, short, intro excerpt, whenNeeded first 2 points, glyph, link.
+ * - Five services as rich rows: title, short, intro excerpt, whenNeeded first 2 points, glyph, link.
  * - "Not sure which you need?" banner linking to /services/it-consulting and /get-a-quote.
  * - Links to /process and /technologies.
  */
@@ -20,7 +20,7 @@ export default function Services() {
     <>
       <Seo
         title="Software & Web Development Services"
-        description="The TechByte offers six core services in Ahmedabad and remotely: Software Development, Website Development, Web Applications, Mobile Apps, AI & Automation, and IT Consulting."
+        description="The TechByte offers five core services in Ahmedabad and remotely: Software Development, Website Development, Web Application Development, Mobile App Development and IT Consulting."
         path="/services"
         schema={[breadcrumbSchema([["Home", "/"], ["Services", "/services"]])]}
       />
@@ -31,7 +31,7 @@ export default function Services() {
           <PageHeader
             eyebrowIndex="01"
             eyebrowText="Services Overview"
-            title="Six ways we help businesses build, innovate and transform."
+            title="Five ways we help businesses build, innovate and transform."
             lead="Each service solves a different kind of problem. We engineer websites, applications, and custom software shaped around your real operational needs, with long-term support after launch."
           />
         </section>

@@ -20,7 +20,7 @@ export default {
         "Database: where data lives, for example MySQL, PostgreSQL or MongoDB.",
         "Mobile: for apps, for example React Native for cross-platform Android and iOS apps.",
         "Hosting and deployment: where it runs, for example Vercel for websites and front ends, plus suitable hosting for back ends and databases.",
-        "Third-party services: payments, email, messaging, maps or AI services, connected through APIs."
+        "Third-party services: payments, email, messaging or maps, connected through APIs."
       ]
     },
     {

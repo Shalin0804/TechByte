@@ -4,7 +4,7 @@ export const FAQ_CATEGORIES = [
     slug: "general",
     label: "General Questions",
     items: [
-      { q: "What is The TechByte?", a: "The TechByte is a software and web development company based in Ahmedabad, Gujarat, India. We build websites, web applications, mobile apps and custom software, automate business processes and provide IT consulting." },
+      { q: "What is The TechByte?", a: "The TechByte is a software and web development company based in Ahmedabad, Gujarat, India. We build websites, web applications, mobile apps and custom software and provide IT consulting." },
       { q: "Where are you located, and do you work remotely?", a: "We're based in Ahmedabad and work remotely with clients across India and internationally, using email, phone, WhatsApp and video calls." },
       { q: "What kinds of businesses do you work with?", a: "Startups, entrepreneurs, small and mid-sized businesses, growing companies and larger organisations modernizing parts of their technology, across industries such as healthcare, hospitality, retail, education, logistics and professional services." },
       { q: "Can you sign an NDA before we share our idea?", a: "Yes. If you'd like a non-disclosure agreement before sharing details, let us know in your first message." },
@@ -46,16 +46,6 @@ export const FAQ_CATEGORIES = [
       { q: "Do you build for both Android and iOS?", a: "Yes. We build cross-platform apps with React Native, so one codebase delivers both the Android and iOS apps." },
       { q: "Do I need an app, or will a web app do?", a: "If people will use it often, need notifications, device features or offline access, an app makes sense. For occasional use, a responsive web application is often the better first step." },
       { q: "Will you publish the app to the app stores?", a: "We prepare the builds and support submission to Google Play and the Apple App Store under your own developer accounts." },
-    ],
-  },
-  {
-    slug: "ai",
-    label: "AI & Automation",
-    items: [
-      { q: "What business tasks can be automated?", a: "Repetitive, rule-based tasks such as moving data between systems, notifications, reports and request routing. With AI, document data extraction, message classification and draft replies also become possible." },
-      { q: "Is AI always necessary?", a: "No. Many problems are solved more reliably with simple rule-based automation. We add AI only where it handles something rules can't." },
-      { q: "How do you keep AI outputs reliable?", a: "We prototype on real examples, validate outputs against rules, keep human review for consequential steps and log every run." },
-      { q: "What about data privacy with AI services?", a: "We minimise the data sent to external services and choose providers and settings that fit your data-handling requirements. This is discussed explicitly during planning." },
     ],
   },
   {

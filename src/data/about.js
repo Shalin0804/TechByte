@@ -3,7 +3,7 @@ export const ABOUT = {
   intro: {
     title: "We build technology that makes businesses work better.",
     lead:
-      "The TechByte is a software and web development company based in Ahmedabad, Gujarat. We design and build websites, web applications, mobile apps and custom software, automate repetitive business processes and advise on technology decisions, for startups, growing businesses and established organisations in India and beyond.",
+      "The TechByte is a software and web development company based in Ahmedabad, Gujarat. We design and build websites, web applications, mobile apps and custom software and advise on technology decisions, for startups, growing businesses and established organisations in India and beyond.",
   },
   vision: {
     label: "Vision",
@@ -52,6 +52,6 @@ export const ABOUT = {
   },
   future: {
     title: "Our long-term technology vision",
-    text: "Technology keeps changing. AI, automation and new platforms are making software more capable every year. Our aim is to help businesses adopt these changes deliberately: where they solve a real problem, at a pace the business can absorb and on foundations that will still be maintainable years from now. We want to be the technology partner clients keep coming back to as their needs grow, because the software we built kept working.",
+    text: "Technology keeps changing, and new frameworks and platforms make software more capable every year. Our aim is to help businesses adopt these changes deliberately: where they solve a real problem, at a pace the business can absorb and on foundations that will still be maintainable years from now. We want to be the technology partner clients keep coming back to as their needs grow, because the software we built kept working.",
   },
 };

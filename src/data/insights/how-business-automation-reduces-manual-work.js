@@ -2,10 +2,10 @@ export default {
   "slug": "how-business-automation-reduces-manual-work",
   "title": "How Business Automation Reduces Manual Work",
   "description": "Where manual work hides in everyday operations, which tasks are worth automating first and how to automate safely without breaking what works.",
-  "category": "AI & Automation",
+  "category": "Business Technology",
   "date": "2026-10-19",
   "updated": "2026-11-01",
-  "service": "ai-automation",
+  "service": "software-development",
   "intro": "Most businesses don't notice how much time disappears into small repetitive tasks: copying a form into a spreadsheet, forwarding an email to the right person, compiling the same report every Monday. Each task takes minutes. Together they consume a significant part of every week. Business automation gives that time back by letting software handle the predictable steps.",
   "blocks": [
     {
@@ -92,14 +92,6 @@ export default {
         "Validate inputs: check that required data is present and sensible before acting on it.",
         "Assign an owner: someone should be responsible for monitoring and adjusting each automation."
       ]
-    },
-    {
-      "type": "h2",
-      "text": "Where AI fits in"
-    },
-    {
-      "type": "p",
-      "text": "Traditional automation needs structured inputs. AI extends automation to unstructured information. It can read a document and extract key fields, classify an incoming email by topic or draft a reply for someone to review. The safest pattern combines both: rule-based automation provides the reliable framework, and AI handles specific reading or drafting steps, with review where accuracy matters."
     },
     {
       "type": "h2",

@@ -3,7 +3,7 @@
 export const INDUSTRIES_PAGE = {
   title: "Technology for the industries that keep the world running",
   lead:
-    "Every industry has its own workflows, regulations and customer expectations, but the underlying problems are often similar: manual processes, scattered information and customers who expect to do things online. Here is how websites, applications, automation and custom software can help in each sector. The examples show what can be built. They are not past client projects.",
+    "Every industry has its own workflows, regulations and customer expectations, but the underlying problems are often similar: manual processes, scattered information and customers who expect to do things online. Here is how websites, applications and custom software can help in each sector. The examples show what can be built. They are not past client projects.",
 };
 
 export const INDUSTRIES = [
@@ -24,7 +24,7 @@ export const INDUSTRIES = [
       "Automated SMS or email reminders the day before each appointment, reducing no-shows.",
     ],
     value: "Fewer phone calls and scheduling errors, quicker access to the right information for each role and a smoother experience for patients.",
-    services: ["web-application-development", "software-development", "ai-automation"],
+    services: ["web-application-development", "software-development", "website-development"],
   },
   {
     slug: "hospitality",
@@ -43,7 +43,7 @@ export const INDUSTRIES = [
       "An event venue enquiry tracker that records each lead, package and follow-up date.",
     ],
     value: "More direct enquiries, organised reservations and less time spent answering the same questions.",
-    services: ["website-development", "web-application-development", "ai-automation"],
+    services: ["website-development", "web-application-development", "software-development"],
   },
   {
     slug: "retail-ecommerce",
@@ -100,7 +100,7 @@ export const INDUSTRIES = [
       "Automatic customer notifications when a consignment is dispatched and delivered.",
     ],
     value: "Real-time visibility, fewer status calls and a reliable record of every delivery.",
-    services: ["web-application-development", "mobile-app-development", "ai-automation"],
+    services: ["web-application-development", "mobile-app-development", "software-development"],
   },
   {
     slug: "professional-services",
@@ -113,13 +113,13 @@ export const INDUSTRIES = [
       "Partners lack a clear view of matters and workloads.",
     ],
     needs: "A credible website with clear service pages, structured client intake and internal tools for matters, documents and deadlines.",
-    solutions: ["Professional services websites", "Client intake and enquiry workflows", "Case or project management systems", "Document processing automation"],
+    solutions: ["Professional services websites", "Client intake and enquiry workflows", "Case or project management systems", "Document management systems"],
     examples: [
       "A consultancy website with practice-area pages and a structured enquiry form that routes leads to the right partner.",
       "A matter tracker with deadlines, responsible people and document links.",
     ],
     value: "Stronger credibility, organised client work and less time lost to admin.",
-    services: ["website-development", "software-development", "ai-automation"],
+    services: ["website-development", "software-development", "it-consulting"],
   },
   {
     slug: "startups",

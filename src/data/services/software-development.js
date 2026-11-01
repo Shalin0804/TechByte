@@ -106,6 +106,6 @@ export default {
     { q: "Who owns the software and the code?", a: "Ownership is set out in the project agreement before work starts. Our standard approach is that you own the software built for you." },
     { q: "Can you modernize an internal system someone else built?", a: "Often, yes. We review the existing code and data first, then recommend whether to extend it, refactor it gradually or rebuild it." },
   ],
-  related: ["web-application-development", "ai-automation", "it-consulting"],
+  related: ["web-application-development", "it-consulting", "website-development"],
   articles: ["custom-software-or-off-the-shelf", "signs-your-business-needs-software-modernization"],
 };

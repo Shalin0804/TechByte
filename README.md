@@ -36,6 +36,5 @@ Contact and Get a Quote validate in the browser (`src/lib/validate.js`), then le
 ## Before launch
 
 - Set the real domain (`VITE_SITE_URL`).
-- Confirm which AI tools to name on the AI & Automation page (it is currently vendor-neutral).
 - Add verified case studies to `src/data/projects.js` when available.
 - Have the Privacy Policy and Terms reviewed.

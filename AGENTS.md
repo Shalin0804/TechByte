@@ -13,8 +13,8 @@ All copy lives in `src/data/` (Claude). Components only render it (Antigravity).
 - Name: **The TechByte**. Tagline: **Build • Innovate • Transform**.
 - Email: techbyte0804@gmail.com · Phone: +91 76984 75791 · Location: Ahmedabad, Gujarat, India.
 - Domain: temporary Vercel domain, set once in `src/data/site.js` (`SITE_URL`).
-- Services (exactly six, owner-confirmed 2026-11-01, see `src/data/services/`): Software Development, Website Development, Web Application Development, Mobile Application Development (React Native), AI & Automation, IT Consulting.
-- Technologies: only those in `src/data/technologies.js` (see CONTENT_STRATEGY.md §1). Name no AI vendors until the owner confirms them.
+- Services (exactly five, see `src/data/services/`): Software Development, Website Development, Web Application Development, Mobile Application Development (React Native), IT Consulting. AI & Automation was removed at the owner's request on 2026-11-01. Do not reintroduce AI services or AI claims.
+- Technologies: only those in `src/data/technologies.js` (see CONTENT_STRATEGY.md §1).
 - Portfolio: **no projects yet**. The Work page shows clearly-labelled empty slots.
 
 ## Hard rules

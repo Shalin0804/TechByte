@@ -1,5 +1,4 @@
-/* Owner-confirmed technologies only (CONTENT_STRATEGY.md §1). AI is described vendor-neutrally
-   until specific AI services are confirmed. `use` explains where and why each tool is chosen. */
+/* Owner-confirmed technologies only (CONTENT_STRATEGY.md §1). `use` explains where and why each tool is chosen. */
 export const TECH_INTRO = {
   title: "Technologies we work with",
   lead:
@@ -30,7 +29,7 @@ export const TECH_GROUPS = [
       { name: "Express.js", use: "A lightweight Node.js framework for REST APIs and integrations." },
       { name: "PHP", use: "Widely supported server language, well suited to content-driven sites and many hosting environments." },
       { name: "Laravel", use: "A full-featured PHP framework for business applications with authentication, queues and admin tools." },
-      { name: "Python", use: "Data processing, automation scripts and AI integrations." },
+      { name: "Python", use: "Data processing, scripting and data-heavy back ends." },
       { name: "Django", use: "A batteries-included Python framework for secure, data-heavy web applications with a built-in admin." },
     ],
   },
@@ -64,15 +63,6 @@ export const TECH_GROUPS = [
     ],
   },
   {
-    slug: "ai-automation",
-    label: "AI & Automation",
-    summary: "Practical automation built in Python and Node.js, with AI services integrated through their APIs.",
-    items: [
-      { name: "Python & Node.js automation", use: "Scheduled jobs, data pipelines and workflows that move information between systems." },
-      { name: "AI service APIs", use: "Text classification, document data extraction, summarisation and assistants. The provider is chosen per project based on the task and data-handling needs." },
-    ],
-  },
-  {
     slug: "cloud",
     label: "Cloud & Deployment",
     summary: "Fast, secure delivery to your users.",
@@ -93,4 +83,4 @@ export const TECH_SELECTION = [
 ];
 
 /* Flat list for the marquee and quick references. */
-export const TECH = TECH_GROUPS.flatMap((g) => g.items.map((i) => i.name)).filter((n) => !/APIs|automation|hosting/i.test(n));
+export const TECH = TECH_GROUPS.flatMap((g) => g.items.map((i) => i.name)).filter((n) => !/APIs|hosting/i.test(n));

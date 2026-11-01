@@ -1,12 +1,11 @@
 /**
  * ServiceGlyph component implementing DESIGN_SYSTEM §7 & TASKS.md C4.
  * 64×64 viewBox with stroke="currentColor" at 1.5px, aria-hidden="true".
- * Exclusively provides glyphs for the six owner-confirmed services:
+ * Exclusively provides glyphs for the five owner-confirmed services:
  *  - software-development: branching logic tree
  *  - website-development: page outline with traces
  *  - web-application-development: modular panel grid with data flow traces
  *  - mobile-app-development: phone outline with reactive traces and nodes
- *  - ai-automation: neural network / node matrix
  *  - it-consulting: compass / architectural roadmap trace
  */
 export default function ServiceGlyph({ slug, className = "" }) {
@@ -81,29 +80,6 @@ export default function ServiceGlyph({ slug, className = "" }) {
           <rect x="22" y="23" width="18" height="14" stroke="var(--color-blue-400)" strokeDasharray="2 2" />
           <path d="M22 42 H42" stroke="var(--color-cyan-400)" />
           <circle cx="32" cy="50" r="1.5" fill="var(--color-cyan-400)" stroke="none" />
-        </svg>
-      );
-
-    case "ai-automation":
-      // Neural matrix / automated circuit node
-      return (
-        <svg {...commonProps}>
-          {/* Input layer */}
-          <circle cx="16" cy="18" r="3" fill="var(--color-ink-950)" stroke="var(--color-blue-500)" />
-          <circle cx="16" cy="32" r="3" fill="var(--color-ink-950)" stroke="var(--color-blue-500)" />
-          <circle cx="16" cy="46" r="3" fill="var(--color-ink-950)" stroke="var(--color-blue-500)" />
-          {/* Processing layer */}
-          <circle cx="34" cy="24" r="3.5" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" />
-          <circle cx="34" cy="40" r="3.5" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" />
-          {/* Output layer */}
-          <circle cx="50" cy="32" r="4" fill="var(--color-cyan-400)" stroke="none" className="signal-node-pulse" />
-          {/* Connections */}
-          <line x1="19" y1="18" x2="31" y2="24" stroke="currentColor" opacity="0.4" />
-          <line x1="19" y1="32" x2="31" y2="24" stroke="currentColor" opacity="0.4" />
-          <line x1="19" y1="32" x2="31" y2="40" stroke="currentColor" opacity="0.4" />
-          <line x1="19" y1="46" x2="31" y2="40" stroke="currentColor" opacity="0.4" />
-          <line x1="37" y1="24" x2="47" y2="32" stroke="var(--color-cyan-400)" strokeWidth="1.5" />
-          <line x1="37" y1="40" x2="47" y2="32" stroke="var(--color-blue-400)" strokeWidth="1.5" />
         </svg>
       );
 

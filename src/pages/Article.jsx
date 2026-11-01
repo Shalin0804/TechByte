@@ -95,28 +95,6 @@ function CategoryCover({ category }) {
         </svg>
       );
 
-    case "AI & Automation":
-      return (
-        <svg {...common}>
-          <rect width="800" height="320" fill="var(--color-ink-950)" />
-          <circle cx="250" cy="100" r="5" fill="var(--color-blue-500)" />
-          <circle cx="250" cy="160" r="5" fill="var(--color-blue-500)" />
-          <circle cx="250" cy="220" r="5" fill="var(--color-blue-500)" />
-          <circle cx="400" cy="130" r="6" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" strokeWidth="2" />
-          <circle cx="400" cy="190" r="6" fill="var(--color-ink-950)" stroke="var(--color-cyan-400)" strokeWidth="2" />
-          <circle cx="550" cy="160" r="8" fill="var(--color-cyan-400)" className="signal-node-pulse" />
-          <line x1="255" y1="100" x2="394" y2="130" stroke="var(--color-ink-800)" strokeWidth="1.5" />
-          <line x1="255" y1="160" x2="394" y2="130" stroke="var(--color-ink-800)" strokeWidth="1.5" />
-          <line x1="255" y1="160" x2="394" y2="190" stroke="var(--color-ink-800)" strokeWidth="1.5" />
-          <line x1="255" y1="220" x2="394" y2="190" stroke="var(--color-ink-800)" strokeWidth="1.5" />
-          <line x1="406" y1="130" x2="542" y2="160" stroke="var(--color-cyan-400)" strokeWidth="2" />
-          <line x1="406" y1="190" x2="542" y2="160" stroke="var(--color-blue-400)" strokeWidth="2" />
-          <text x="80" y="60" fill="var(--color-mist-300)" fontFamily="monospace" fontSize="12" letterSpacing="0.14em">
-            // DETERMINISTIC PIPELINE &amp; API COUPLING
-          </text>
-        </svg>
-      );
-
     default:
       return (
         <svg {...common}>

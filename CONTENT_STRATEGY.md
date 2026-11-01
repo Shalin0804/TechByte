@@ -8,9 +8,9 @@ _Owner: Claude (content strategist, SEO architect, reviewer). Last updated: 2026
 |---|---|
 | Name and tagline | The TechByte · Build • Innovate • Transform |
 | Contact | techbyte0804@gmail.com · +91 76984 75791 · Ahmedabad, Gujarat, India (works remotely with clients anywhere) |
-| Services (owner-confirmed 2026-11-01) | Software Development · Website Development · Web Application Development · Mobile Application Development · AI & Automation · IT Consulting |
+| Services (owner-confirmed 2026-11-01) | Software Development · Website Development · Web Application Development · Mobile Application Development · IT Consulting. **AI & Automation was removed at the owner's request.** |
 | Technologies (owner-confirmed) | **Frontend:** HTML, CSS, JavaScript, TypeScript, React, Vite, Tailwind CSS · **Backend:** Node.js, Express.js, PHP, Laravel, Python, Django · **Mobile:** React Native · **Databases:** MySQL, PostgreSQL, MongoDB · **CMS and commerce:** WordPress, WooCommerce, Razorpay · **Deployment:** Vercel |
-| AI tools | **None confirmed.** Describe AI work vendor-neutrally ("integrating AI services through their APIs"). Never name OpenAI, Claude, Gemini, n8n, Zapier and so on until the owner confirms them. |
+| AI | Not offered. Do not describe AI services or AI capabilities. |
 | Portfolio | **No verified projects.** Work shows labelled slots only. |
 | Not available, never invent | Founding year, years of experience, team size, offices, certifications, awards, partnerships, client names or counts, testimonials, results or statistics, fixed prices, guaranteed timelines |
 
@@ -61,7 +61,7 @@ E-commerce, website modernization and support & maintenance are no longer separa
 /contact  /get-a-quote  /privacy-policy  /terms
 ```
 
-New service slugs: `software-development`, `website-development`, `web-application-development`, `mobile-app-development`, `ai-automation`, `it-consulting`.
+New service slugs: `software-development`, `website-development`, `web-application-development`, `mobile-app-development`, `it-consulting` (`/services/ai-automation` redirects to Software Development).
 
 ## 6. Ownership for this phase
 

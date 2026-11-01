@@ -9,7 +9,6 @@ import a4 from "./insights/how-business-automation-reduces-manual-work.js";
 import a5 from "./insights/before-developing-a-mobile-app.js";
 import a6 from "./insights/choosing-the-right-technology-stack.js";
 import a7 from "./insights/why-businesses-need-custom-booking-systems.js";
-import a8 from "./insights/how-ai-can-improve-business-operations.js";
 import a9 from "./insights/signs-your-business-needs-software-modernization.js";
 import a10 from "./insights/essential-features-of-a-business-dashboard.js";
 import a11 from "./insights/what-to-prepare-before-a-website-quote.js";
@@ -21,7 +20,6 @@ export const CATEGORIES = [
   "Website Development",
   "Web Applications",
   "Mobile Applications",
-  "AI & Automation",
   "Business Technology",
   "Digital Transformation",
   "Technology Guides",
@@ -32,7 +30,7 @@ export const slugify = (s) => s.toLowerCase().replace(/&/g, "and").replace(/[^a-
 const words = (a) =>
   [a.intro, ...a.blocks.flatMap((b) => b.items || [b.text]), ...(a.faqs || []).flatMap((f) => [f.q, f.a])].join(" ").split(/\s+/).length;
 
-const base = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11]
+const base = [a1, a2, a3, a4, a5, a6, a7, a9, a10, a11]
   .map((a) => ({
     ...a,
     author: AUTHOR,
