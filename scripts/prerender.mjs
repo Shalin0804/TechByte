@@ -1,5 +1,5 @@
 /* Runs after the client and SSR builds. Writes static HTML for every route (crawlable
-   without JS), the /admin shell, 404.html, sitemap.xml, robots.txt, llms.txt and llms-full.txt. */
+   without JS), 404.html, sitemap.xml, robots.txt, llms.txt and llms-full.txt. */
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -41,15 +41,13 @@ for (const route of routes) {
 }
 const nf = await render("/404");
 write("404.html", fill(nf.head, nf.html));
-// admin is client-rendered only: empty root, noindex
-write("admin.html", fill('<title>Admin | The TechByte</title><meta name="robots" content="noindex, nofollow" />', ""));
 
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.map((r) => `  <url><loc>${SITE_URL}${r === "/" ? "/" : r}</loc></url>`).join("\n")}
 </urlset>
 `);
-write("robots.txt", `User-agent: *\nAllow: /\nDisallow: /admin\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 
 const list = (name, test) =>
   `## ${name}\n\n${pages.filter((p) => test(p.route)).map((p) => `- [${p.title}](${SITE_URL}${p.route}): ${p.description}`).join("\n")}\n`;
@@ -63,4 +61,4 @@ write("llms-full.txt", `# The TechByte — full site text\n\n> ${pages[0].descri
   pages.map((p) => `---\n\n# ${p.title}\n\nURL: ${SITE_URL}${p.route}\n\n${p.text}\n`).join("\n"));
 
 rmSync(resolve(root, "dist-ssr"), { recursive: true, force: true });
-console.log(`prerendered ${routes.length} routes + 404 + admin shell; sitemap.xml, robots.txt, llms.txt, llms-full.txt`);
+console.log(`prerendered ${routes.length} routes + 404; sitemap.xml, robots.txt, llms.txt, llms-full.txt`);

@@ -1,0 +1,101 @@
+/* The canonical project lifecycle, used on /process and summarised on Home and service pages.
+   No durations: timelines are agreed per project. */
+export const PROCESS_INTRO = {
+  title: "How a project with The TechByte works",
+  lead:
+    "Good software comes from a predictable process: understand the problem, agree what will be built, show progress early and test before anything goes live. Here is every phase, including what we need from you, what you receive and how you approve each step.",
+};
+
+export const PHASES = [
+  {
+    slug: "initial-discussion",
+    short: "Discuss",
+    title: "Initial Discussion",
+    summary: "A conversation about your goals, problem and constraints.",
+    what: "We talk through what you want to achieve, who the users are, what exists today and any constraints on budget, timing or technology. It can happen by call, video meeting, email or WhatsApp, whichever suits you.",
+    why: "Many projects go wrong because the real problem was never stated clearly. A focused first conversation makes sure we're solving the right thing, and lets both sides judge whether we're a good fit.",
+    client: ["A short description of the idea or problem", "Who will use the result", "Any examples, documents or existing systems worth seeing"],
+    deliverables: ["An honest first read on approach and feasibility", "Suggested next steps, or a recommendation elsewhere if we're not the right fit"],
+    approval: "No commitment. You decide whether to move on to requirement gathering.",
+  },
+  {
+    slug: "requirement-gathering",
+    short: "Requirements",
+    title: "Requirement Gathering",
+    summary: "Workflows, users, data and rules documented in detail.",
+    what: "We go into detail: user roles, workflows step by step, the data involved, business rules, integrations, content and edge cases. For existing systems we review what's there today.",
+    why: "Clear requirements are the foundation for an accurate estimate, a sensible design and fewer surprises during development.",
+    client: ["Time with the people who do the work today", "Sample documents, spreadsheets, forms or reports", "Access to existing systems or accounts where relevant"],
+    deliverables: ["A requirements document: users, workflows, features and rules", "Open questions and assumptions, listed explicitly"],
+    approval: "You review the requirements document and confirm, or correct, our understanding.",
+  },
+  {
+    slug: "scope-and-planning",
+    short: "Plan",
+    title: "Project Scope & Planning",
+    summary: "Scope, architecture, milestones and estimate agreed in writing.",
+    what: "We turn requirements into a defined scope for the first release, choose the architecture and technologies, and break the work into milestones with deliverables for each.",
+    why: "A written scope protects both sides: you know exactly what you're getting, and changes are handled deliberately rather than by accident.",
+    client: ["Priorities: what must be in the first release and what can wait", "Decisions on any open questions", "Your budget range and preferred timing"],
+    deliverables: ["Scope of work and milestone plan", "Technical approach and architecture summary", "Estimate and proposal"],
+    approval: "Work begins once you approve the proposal and the agreement is in place.",
+  },
+  {
+    slug: "ui-ux-design",
+    short: "Design",
+    title: "UI/UX Design",
+    summary: "User flows and screens designed around real tasks.",
+    what: "We map the user journeys, then design screens and key interactions, from structure (wireframes) to visual design consistent with your brand.",
+    why: "Changing a design is far cheaper than changing built software. Reviewing screens early catches misunderstandings before they become code.",
+    client: ["Brand assets: logo, colours, fonts", "Feedback on flows and designs within the agreed review rounds", "Content or sample data for realistic screens"],
+    deliverables: ["User flows and wireframes", "Visual designs for key screens and states", "A clickable prototype where it helps"],
+    approval: "You approve the designs before development of those screens starts.",
+  },
+  {
+    slug: "development",
+    short: "Develop",
+    title: "Development",
+    summary: "Built in increments you can see and test.",
+    what: "We build the agreed scope in increments: interface, business logic, database, integrations and admin tools. You get regular progress updates and access to a test version.",
+    why: "Seeing working software early means feedback shapes the product while changes are still cheap, and there's no big surprise at the end.",
+    client: ["Timely feedback on each increment", "Final content, credentials and third-party accounts as needed", "A single point of contact for decisions"],
+    deliverables: ["Working increments on a staging environment", "Regular progress updates", "Source code in a version-controlled repository"],
+    approval: "You review each milestone on staging. Changes outside the agreed scope are estimated before they're added.",
+  },
+  {
+    slug: "quality-assurance",
+    short: "Test",
+    title: "Quality Assurance",
+    summary: "Functional, device, performance, accessibility and security checks.",
+    what: "We test features against requirements, across browsers and devices, with realistic data and edge cases. We also check performance, accessibility basics and security essentials such as authentication and input validation.",
+    why: "Bugs found before launch are cheaper and far less damaging than bugs your customers find.",
+    client: ["User acceptance testing: your team tries real tasks", "A list of any issues found, with screenshots where possible"],
+    deliverables: ["Tested release candidate", "Fixed issues and a list of known limitations, if any"],
+    approval: "You sign off after user acceptance testing.",
+  },
+  {
+    slug: "deployment",
+    short: "Launch",
+    title: "Deployment",
+    summary: "Go-live with data, domains and handover in place.",
+    what: "We deploy to production, configure domains, hosting and email settings, migrate data where needed, set up redirects for replaced websites, and verify everything works live.",
+    why: "A careful launch protects your reputation, your data and, for websites, your search visibility.",
+    client: ["Access to domain, hosting or store accounts", "Approval of the launch date and time"],
+    deliverables: ["Live website, application or app", "Handover documentation and admin training", "Access credentials transferred to you"],
+    approval: "You approve the go-live, and we confirm everything is working with you after launch.",
+  },
+  {
+    slug: "post-launch-support",
+    short: "Support",
+    title: "Post-Launch Support",
+    summary: "Fixes, updates and steady improvements after go-live.",
+    what: "After launch we fix any issues that appear, keep software and dependencies up to date, monitor performance and deliver improvements based on real usage.",
+    why: "Software is never finished. Regular care keeps it secure, compatible and useful as your business changes.",
+    client: ["Reports of issues or ideas as they come up", "Priorities for upcoming improvements"],
+    deliverables: ["Fixes and updates as agreed", "Improvement releases", "Advice when your needs change"],
+    approval: "Support scope and the way requests are raised are agreed before support starts.",
+  },
+];
+
+/* Short form for Home and service pages. */
+export const PROCESS = PHASES.map((p) => ({ title: p.title, short: p.short, text: p.summary, slug: p.slug }));

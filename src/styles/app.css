@@ -1,0 +1,80 @@
+/* Claude-owned styles: page transitions, forms, legal and utility pages. Visual system lives in base.css. */
+
+.tb-label { @apply font-mono text-label uppercase; letter-spacing: 0.14em; color: var(--color-mist-300); }
+.on-paper .tb-label { color: var(--color-slate-600); }
+
+/* Headline words rise out of a mask on load. Text stays visible (opacity 1) for LCP. */
+.tb-split > span { display: inline-block; }
+html.js:not(.reduced) .tb-split > span { animation: tb-rise 900ms var(--ease-out) both; }
+html.js:not(.reduced) .tb-split > span:nth-child(2) { animation-delay: 80ms; }
+html.js:not(.reduced) .tb-split > span:nth-child(3) { animation-delay: 160ms; }
+@keyframes tb-rise {
+  from { transform: translateY(0.45em); clip-path: inset(0 0 100% 0); }
+  to { transform: none; clip-path: inset(-0.2em -0.1em -0.25em -0.1em); }
+}
+
+/* Faint blueprint grid with a slow drift. */
+.tb-grid-bg {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-ink-800) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-ink-800) 70%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 20%, #000 20%, transparent 75%);
+}
+
+/* Submit button: chamfer drawn on ::before so the focus outline is never clipped. */
+.tb-submit::before {
+  content: ""; position: absolute; inset: 0; background: var(--color-blue-600);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+.tb-submit:hover::before { background: var(--color-blue-500); }
+.tb-spinner {
+  display: inline-block; width: 1em; height: 1em; border-radius: 50%;
+  border: 2px solid rgb(255 255 255 / 0.35); border-top-color: #fff;
+  animation: tb-spin 700ms linear infinite;
+}
+@keyframes tb-spin { to { transform: rotate(360deg); } }
+
+/* Success tick draws itself. */
+.tb-check circle, .tb-check path { stroke-dasharray: 200; stroke-dashoffset: 0; }
+html:not(.reduced) .tb-check circle { animation: tb-draw 900ms var(--ease-out) both; }
+html:not(.reduced) .tb-check path { animation: tb-draw 600ms var(--ease-out) 450ms both; }
+@keyframes tb-draw { from { stroke-dashoffset: 200; } }
+
+/* Quote choices: a node that lights when picked. */
+.tb-choice-node { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--color-mist-300); flex: none; transition: all var(--dur-base) var(--ease-out); }
+.tb-choice input:checked + .tb-choice-box .tb-choice-node { background: var(--color-cyan-400); border-color: var(--color-cyan-400); box-shadow: 0 0 10px var(--color-cyan-400); }
+.tb-brief-bar { transition: transform var(--dur-slow) var(--ease-out); }
+
+/* Contact channels: a trace underline grows on hover. */
+.tb-channel { position: relative; }
+.tb-channel::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: var(--color-blue-400); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-slow) var(--ease-out); }
+.tb-channel:hover::after, .tb-channel:focus-visible::after { transform: scaleX(1); }
+
+/* Numbered steps on paper: a line that draws when revealed. */
+.tb-step::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: var(--color-blue-600); transform-origin: left; }
+html.js:not(.reduced) .tb-step[data-reveal]::before { transform: scaleX(0); transition: transform 1s var(--ease-out) calc(var(--reveal-delay, 0ms) + 200ms); }
+html.js .tb-step[data-reveal].is-in::before { transform: scaleX(1); }
+
+/* Route change: a signal sweeps across the top, then the page eases in. */
+.tb-route-trace {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 90; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--color-blue-500) 30%, var(--color-cyan-400));
+  box-shadow: 0 0 12px var(--color-cyan-400);
+  transform-origin: left; animation: tb-sweep 800ms var(--ease-out) forwards;
+}
+@keyframes tb-sweep {
+  0% { transform: scaleX(0); opacity: 1; }
+  70% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+.tb-page-enter { animation: tb-page 600ms var(--ease-out) both; }
+@keyframes tb-page { from { opacity: 0; transform: translateY(12px); } }
+html.reduced .tb-page-enter { animation: none; }
+html.reduced .tb-route-trace { display: none; }
+
+/* 404: the broken trace flickers once. */
+html:not(.reduced) .tb-broken { animation: tb-flicker 2.4s steps(1) infinite; }
+@keyframes tb-flicker { 0%, 92%, 96% { opacity: 1; } 94%, 98% { opacity: 0.2; } }
