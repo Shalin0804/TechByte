@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-ssr/
+.env
+.env.*
+!.env.example
+server/node_modules/
+server/.env
+*.log
